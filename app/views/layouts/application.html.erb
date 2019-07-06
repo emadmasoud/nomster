@@ -10,6 +10,63 @@
   </head>
 
   <body>
+        <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="#">Nomster</a>
+<%= link_to 'Nomster', root_path, class: 'navbar-brand' %>
+
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav mr-auto mt-2 mt-md-0">
+      <li class="nav-item">
+                <%= link_to new_place_path, class: 'nav-link' do %>
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+    <%= link_to 'New Place', new_place_path, class: 'nav-link' %>
+        <i class="fa fa-plus-circle"></i>
+        new place
+        <% end %>
+    </ul>
+    <ul class="navbar-nav">
+      <% if user_signed_in? %>
+        <li class="nav-item">
+          <%= link_to 'A user is signed in!', '#', class: 'nav-link' %>
+        </li>
+      <% else %>
+        <li class="nav-item">
+                <%= link_to 'Sign in', new_user_session_path, class: 'nav-link' %>
+        </li>
+         <li class="nav-item">
+      <%= link_to 'Sign up', new_user_registration_path, class: 'nav-link' %>
+    </li>
+      <% end %>
+    </ul>
+    </div>
+</nav>
+        </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item">
+            <%= link_to new_place_path, class: 'nav-link' do %>
+      <i class="fa fa-plus-circle"></i>
+      New Place
+    <% end %>
+            <a class="nav-link disabled" href="#">Disabled</a>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+   <% if notice.present? %>
+  <p class="alert alert-info"><%= notice %></p>
+<% end %>
+<% if alert.present? %>
+  <p class="alert alert-danger"><%= alert %></p>
+<% end %>
     <%= yield %>
   </body>
 </html>
